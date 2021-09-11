@@ -61,6 +61,11 @@ p {
     color: #f46669;
 }
 
+.current_page_item .nav-link {
+    color: #f46669;
+    border-bottom: 2px solid #f46669;
+}
+
 .nav-link.active {
     color: #f46669;
     border-bottom: 2px solid #f46669;
@@ -72,13 +77,13 @@ p {
     width: 100%;
     height: 100px;
     margin: 0 auto;
-    background-image: url(../img/separador.png);
+    background-image: url(img/separador.png);
     background-repeat: no-repeat;
     background-position: center center;
 }
 
 .inverso::after {
-    background-image: url(../img/separador-inverso.png);
+    background-image: url(img/separador-inverso.png);
 }
 
 /** Index **/
@@ -120,7 +125,6 @@ body.home .clases {
 }
 
 .licenciatura {
-    background-image: url(../img/chef_bg.jpg);
     background-size: cover;
     background-position: center center;
 }
@@ -147,26 +151,20 @@ body.home .clases {
     background-size: cover;
 }
 
-.nosotros-bg {
-    background-image: url(../img/principal1.jpg);
-}
-
-.clase-bg {
-    background-image: url(../img/1.jpg);
-}
-
-.contacto-bg {
-    background-image: url(../img/principal2.jpg);
-}
-
-
-/** Nosotros **/
-.contenido-nosotros {
-    margin-top: -5rem;
+/** Page **/
+.contenido-pagina {
     border: 1px solid #e1e1e1;
     position: relative;
     z-index: 100;
 }
+
+.destacada {
+    margin-top: -5rem;
+} 
+
+.no-destacada {
+    margin-top: 0!important;
+} 
 
 .nosotros .informacion h3 {
     font-weight: 300;

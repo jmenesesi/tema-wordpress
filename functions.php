@@ -11,12 +11,48 @@
   */
   require_once dirname(__FILE__) . '/inc/custom-fields.php';
 
+/**
+ * Imagenes destacadas para paginas
+ */
+
+add_action('init', 'edc_imagen_destacada');
+
+ function edc_imagen_destacada($id) {
+     $imagen = get_the_post_thumbnail_url($id, 'full');
+
+     $html = '';
+     $clase = false;
+     if($imagen) {
+        $clase = true;
+        $html.= '<div class="container">';
+        $html.= '<div class="row imagen-destacada">';
+        $html.= '</div>';
+        $html.= '</div>';
+
+        //Agregar estilos linealmente
+        wp_register_style('custom', false);
+        wp_enqueue_style('custom');
+
+        // CReamos el css para el custom
+        $imagen_destacada_css = "
+        .imagen-destacada {
+            background-image: url($imagen);
+        }
+        ";
+
+        wp_add_inline_style('custom', $imagen_destacada_css);
+     }
+
+     return array($html, $clase);
+ }
 
 /**
  * Funciones que se cargan al activar el tema
  */
 
  function edc_setup() {
+
+    add_theme_support('post-thumbnails');
 
     // Menu de navegacion
     register_nav_menus(array(

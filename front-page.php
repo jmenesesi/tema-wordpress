@@ -3,7 +3,9 @@
 
     <?php while(have_posts()): the_post(); ?>
 
-    <?php echo get_the_ID(); ?> 
+    <?php 
+    //echo get_the_ID(); 
+    ?> 
 
     <div class="container-fluid imagenes-principales">
         <div class="row imagen-superior imagen">
@@ -34,44 +36,14 @@
         </div>
     </div> <!--.container-fluid-->
 
-    <div class="container">
-        <section class="nosotros mt-5">
-            <h2 class="text-center mb-5 separador">
-                ¿Por qué estudiar con nosotros?
-            </h2>
-            <div class="row">
-                <div class="col-md-4 text-center informacion">
-                    <img src="./img/icono_chef.png" alt="icon chef" class="img-fluid mb-3">
-                    <h3>
-                        Chef's especialistas
-                    </h3>
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                    </p>
-                </div><!--col-md-4-->
+    <?php 
+        $nosotros = new WP_Query('pagename=nosotros');
+        while($nosotros->have_posts()) : $nosotros->the_post();
+            get_template_part('template', 'parts/iconos');
+        endwhile;
+        wp_reset_postdata();
+    ?>
 
-                <div class="col-md-4 text-center informacion">
-                    <img src="./img/icono_vino.png" alt="icono vino" class="img-fluid mb-3">
-                    <h3>
-                        Incluye todo sobre bebidas
-                    </h3>
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                    </p>
-                </div><!--col-md-4-->
-
-                <div class="col-md-4 text-center informacion">
-                    <img src="./img/icono_menu.png" alt="icono chef" class="img-fluid mb-3">
-                    <h3>
-                        Siempre actualizado
-                    </h3>
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                    </p>
-                </div><!--col-md-4-->
-            </div><!--.nosotros-->
-        </section>
-    </div><!--.container-->
     <section class="clases mt-5 py-5">
         <h1 class="separador text-center mb-3">Próximas Clases</h1>
         <div class="container">
