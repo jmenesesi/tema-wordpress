@@ -149,3 +149,34 @@ function edc_seccion_nosotros() {
 	) );
 
 }
+
+/**
+ Blog
+ */
+add_action( 'cmb2_admin_init', 'edc_campos_blog' );
+
+function edc_campos_blog() {
+	$prefix = 'edc_blog_';
+    $id_blog = get_option('page_for_posts');
+	/**
+	 * Metabox to be displayed on a single page ID
+	 */
+	$edc_campos_homepage = new_cmb2_box( array(
+		'id'           => $prefix . 'blog',
+		'title'        => esc_html__( 'Campos Blog', 'cmb2' ),
+		'object_types' => array( 'page' ), // Post type
+		'context'      => 'normal',
+		'priority'     => 'high',
+		'show_names'   => true, // Show field names on the left
+		'show_on'      => array(
+			'id' => array( $id_blog ),
+		), 
+	) );
+
+	$edc_campos_homepage->add_field( array(
+		'name' => esc_html__( 'Slogan blog', 'cmb2' ),
+		'desc' => esc_html__( 'Añada una descripción a la página web', 'cmb2' ),
+		'id'   => $prefix.'slogan_blog',
+		'type' => 'text',
+	) );
+}

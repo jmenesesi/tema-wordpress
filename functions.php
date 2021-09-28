@@ -52,6 +52,10 @@ add_action('init', 'edc_imagen_destacada');
 
  function edc_setup() {
 
+    // Definir tamanio de imagenes
+    add_image_size('mediano', 510, 340, true);
+    
+
     add_theme_support('post-thumbnails');
 
     // Menu de navegacion
