@@ -1,10 +1,22 @@
 <?php
 
+ /**
+  * Carga los post types de instructores y claes
+  */
+  require_once dirname(__FILE__) . '/inc/posttypes.php';
+
+/**
+ * Queries reutilizables
+ */
+
+ require_once dirname(__FILE__) . '/inc/queries.php';
+
+
 /**
  * Agregar CMB2
  */
 
- require_once dirname(__FILE__) . '/cmb2.php';
+require_once dirname(__FILE__) . '/cmb2.php';
 
  /**
   * Carga campos personalizados
