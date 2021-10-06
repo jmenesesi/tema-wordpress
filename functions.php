@@ -66,6 +66,7 @@ add_action('init', 'edc_imagen_destacada');
 
     // Definir tamanio de imagenes
     add_image_size('mediano', 510, 340, true);
+    add_image_size('cuadrada_mediana', 350, 350, true);
     
 
     add_theme_support('post-thumbnails');
@@ -109,3 +110,13 @@ function edc_scripts() {
 
 add_action('wp_enqueue_scripts', 'edc_scripts');
 
+/** Agregar un mensaje personalizado a la pagina en el admin */
+
+add_filter('display_post_states', 'edc_cambiar_estado', 10, 2);
+
+function edc_cambiar_estado($states, $post) {
+    if(('page'=== get_post_type($post->ID)) && ('page-clases.php' === get_page_template_slug($post->ID))) {
+        $states[] = __('Página de Clases <a href="edit.php?post_type=clases_cocina">Administrar clases</a>');
+    }
+    return $states;
+}
